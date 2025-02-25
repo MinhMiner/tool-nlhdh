@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tool NLHĐH</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header>
+
+    </header>
+    
+    <section id="process-schedule-algorithms" class="body-section">
+        <div>
+            <h2 class="section-title">Process Schedule Algorithms</h2>
+            <div id="process-schedule-algorithms-content">
+                <!-- FCFS -->
+                <div id="fcfs-content" class="content">
+                    <h3>FCFS (First Come First Served)</h3>
+                    <div>
+                        <label for="fcfs-arrival-time">Arrival time:</label>
+                        <input type="text" id="fcfs-arrival-time" placeholder="0 1 2 ...">
+                    </div>
+                    <div>
+                        <label for="fcfs-burst-time">Burst Time:</label>
+                        <input type="text" id="fcfs-burst-time" placeholder="3 5 2 ...">
+                    </div>
+                    <button id="btn-fcfs-calculate">Calculate</button>
+                    <div id="fcfs-result"></div>
+                </div>
+
+                <!-- SJF -->
+                <div id="sjf-content" class="content">
+                    <h3>SJF (Shortest-Job-First)</h3>
+                    <div>
+                        <label for="sjf-arrival-time">Arrival time:</label>
+                        <input type="text" id="sjf-arrival-time" placeholder="0 1 2 ...">
+                    </div>
+                    <div>
+                        <label for="sjf-burst-time">Burst Time:</label>
+                        <input type="text" id="sjf-burst-time" placeholder="3 5 2 ...">
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" id="checkbox-sjf-non-preemptive">
+                            <span>
+                                Non-preempetive?
+                            </span>        
+                        </label>
+                    </div>                    
+                    <button id="btn-sjf-calculate">Calculate</button>
+                    <div id="sjf-result"></div>
+                </div>
+
+                <!-- Priority -->
+                <div id="priority-content" class="content">
+                    <h3>Priority</h3>
+                    <div>
+                        <label for="priority-arrival-time">Arrival time:</label>
+                        <input type="text" id="priority-arrival-time" placeholder="0 1 2 ...">
+                    </div>
+                    <div>
+                        <label for="priority-burst-time">Burst Time:</label>
+                        <input type="text" id="priority-burst-time" placeholder="3 5 2 ...">
+                    </div> 
+                    <div>
+                        <label for="priority-priority-level">Priority level:</label>
+                        <input type="text" id="priority-priority-level" placeholder="3 5 2 ...">
+                    </div> 
+                    <div>
+                        <label>
+                            <input type="checkbox" id="checkbox-priority-non-preemptive">
+                            <span>
+                                Non-preempetive?
+                            </span>        
+                        </label>
+                    </div>                    
+                    <button id="btn-priority-calculate">Calculate</button>
+                    <div id="priority-result"></div>
+                </div>
+
+                <!-- RR -->
+                <div id="rr-content" class="content">
+                    <h3>RR (Round Robin)</h3>
+                    <div>
+                        <label for="rr-arrival-time">Arrival time:</label>
+                        <input type="text" id="rr-arrival-time" placeholder="0 1 2 ...">
+                    </div>
+                    <div>
+                        <label for="rr-burst-time">Burst Time:</label>
+                        <input type="text" id="rr-burst-time" placeholder="3 5 2 ...">
+                    </div>
+                    <div>
+                        <label for="rr-quantum">Quantum:</label>
+                        <input type="text" id="rr-quantum" placeholder="2">
+                    </div>                    
+                    <button id="btn-rr-calculate">Calculate</button>
+                    <div id="rr-result"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+
+    </footer>
+
+    <script src="./js/parser.js"></script>
+    <script src="./js/algorithms/fcfs.js"></script>
+    <script src="./js/algorithms/sjf.js"></script>
+    <script src="./js/algorithms/priority.js"></script>
+    <script src="./js/algorithms/round_robin.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
