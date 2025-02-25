@@ -36,6 +36,43 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Display Results in HTML
-function displayResult(resultId, result) {
-    document.getElementById(resultId).innerHTML = "<p>" + result.join("<br>") + "</p>";
+function displayResult(resultId, resultData) {
+    let resultContainer = document.getElementById(resultId);
+    resultContainer.innerHTML = "";
+
+    // Display execution order
+    let executionDiv = document.createElement("div");
+    executionDiv.innerHTML = "<h4>Execution Order:</h4><p>" + resultData.result.join("<br>") + "</p>";
+    resultContainer.appendChild(executionDiv);
+
+    // Display Gantt Chart
+    let ganttDiv = document.createElement("div");
+    ganttDiv.innerHTML = "<h4>Gantt Chart:</h4>";
+    let ganttChart = document.createElement("div");
+    ganttChart.style.display = "flex";
+    ganttChart.style.border = "1px solid black";
+    
+    resultData.ganttChart.forEach(segment => {
+        let processBlock = document.createElement("div");
+        processBlock.style.border = "1px solid black";
+        processBlock.style.padding = "5px";
+        processBlock.style.margin = "2px";
+        processBlock.style.minWidth = "40px";
+        processBlock.style.textAlign = "center";
+        processBlock.innerHTML = `${segment.process}<br>${segment.start} - ${segment.end}`;
+        ganttChart.appendChild(processBlock);
+    });
+
+    ganttDiv.appendChild(ganttChart);
+    resultContainer.appendChild(ganttDiv);
+
+    // Display statistics
+    let statsDiv = document.createElement("div");
+    statsDiv.innerHTML = `
+        <h4>Statistics:</h4>
+        <p>Average Waiting Time: ${resultData.avgWaitingTime.toFixed(2)}</p>
+        <p>Average Response Time: ${resultData.avgResponseTime.toFixed(2)}</p>
+        <p>Average Turnaround Time: ${resultData.avgTurnaroundTime.toFixed(2)}</p>
+    `;
+    resultContainer.appendChild(statsDiv);
 }

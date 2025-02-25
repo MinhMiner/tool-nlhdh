@@ -44,5 +44,11 @@ function sjf(processes, nonPreemptive) {
             time++;
         }
     }
-    return result;
+    
+    let ganttChart = [];
+    let avgWaitingTime = 0;
+    let avgResponseTime = 0;
+    let avgTurnaroundTime = 0;
+
+    return { result, ganttChart, avgWaitingTime, avgResponseTime, avgTurnaroundTime };
 }
